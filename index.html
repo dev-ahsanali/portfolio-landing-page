@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Porfolio Landing Page</title>
+
+    <!-- Design -->
+    <style>
+        * {
+            margin:0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0CB0DC;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            max-width: 1440px;
+            color: black;
+            margin: 0 auto;
+        }
+
+        /* Nav bar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            padding: 40px;
+            padding-top: 60px;
+            align-items: center;
+        }
+
+        nav>ul {
+            list-style-type: none;
+            display: flex;
+        }
+
+        ul>li>.line {
+            border: 2px solid var(--primary);
+            width: 32px;
+            border-radius: 20px;
+            margin-top: 5px;
+            margin-left: 25px;
+        }
+
+        nav>ul>li>a {
+            text-decoration: none;
+            color: black;
+            font-weight: 600;
+            font-size: 20px;
+            margin-left: 15px;
+            margin-right: 2rem;
+            cursor: pointer;
+            transition: all;
+            transition-duration: 0.3s;
+        }
+
+        a:hover {
+            color: var(--primary);
+        }
+
+        .buttons>button {
+            margin-left: 10px;
+            font-size: 20px;
+            border-radius: 6px;
+            width: 145px;
+            height: 51;
+            padding: 10px;
+            cursor: pointer;
+            transition-duration: 0.3s;
+
+        }
+
+        button.filled {
+            background-color: var(--primary);
+            color: white;
+            border: 1px solid transparent;
+        }
+
+        .filled:hover {
+            background-color: transparent;
+            color: var(--primary);
+            border-color: var(--primary);
+        }
+
+        button.outlined {
+            background-color: transparent;
+            color: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .outlined:hover {
+            background-color: var(--primary);
+            color: white;
+            border: 1px solid transparent;
+        }
+
+        /* Body Content */
+        main {
+            padding: 30px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 30px;
+        }
+
+        .Illustration {
+            width: 700px;
+
+        }
+
+        .hero>h1 {
+            font-size: 55px;
+            width: 430px;
+            font-weight: 600;
+            margin-right: 60px;
+        }
+
+        .hero>p {
+            margin-top: 15px;
+            width: 257px;
+            font-size: 21px;
+            color: gray;
+        }
+
+        h1>span {
+            color: var(--primary);
+        }
+
+        .hero>.cta {
+            width: 200px;
+            height: 60px;
+            background-color: var(--primary);
+            color: white;
+            border: 1px solid transparent;
+            border-radius: 6px;
+            font-size: 21px;
+            margin-top: 20px;
+            cursor: pointer;
+            transition: all;
+            transition-duration: 0.3s;
+        }
+
+        .cta:hover {
+            background-color: transparent;
+            color: var(--primary);
+            border-color: var(--primary);
+        }
+
+        /* Laptop/Medium Screen Responsive */
+
+        @media (max-width:1200px){
+           .Illustration{
+            display:none;
+           }
+           .hero{
+            text-align: center;
+           }
+           .hero h1,p{
+            margin-right:0;
+           }
+           .hero h1{
+            width: 90%;
+            margin: 0 auto;
+            font-size: 40px;
+           }
+           .hero p{
+            margin: 22px auto;
+            margin-bottom: 0;
+            width: 70%;
+            font-size: 18px;
+        }
+        .cta{
+            font-size: 18px !important;
+            width: 216px !important;
+            height: 60px  !important;
+        }  
+        }
+
+        .mobile-nav{
+            display: none;
+        }
+        /* Mobile/Small Screen Responsive */
+        @media (max-width: 800px){
+            .desktop-nav{
+                display: none;
+            }
+            .mobile-nav{
+                display: flex;
+            }
+            .menu-icon{
+                cursor: pointer;
+            }
+            .close-icon{
+                cursor: pointer;
+            }
+           
+        }
+        /* Menu*/
+        .menu{
+            width: 280px;
+            height: 100vh;
+            position: absolute;
+            top: 0;
+            right: 0;
+            background-color: white;
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            padding: 20px;
+        }
+        .close-icon{
+            margin-top: 40px;
+        }
+        .menu .divider{
+            border: 1px solid gray;
+            margin: 40px 0;
+        }
+        .menu button{
+            width:100%;
+            margin: 5px;
+        }
+
+        .menu ul{
+            list-style-type:none;
+            text-align: center;
+        }
+        .menu ul li{
+            list-style-type: none;
+            margin-top: 40px;
+        }
+        .menu a{
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 18px;
+            margin: 0;
+        }
+
+        .visible{
+            display: block;
+        }
+
+        .hidden{
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Desktop Nav bar-->
+    <nav class="desktop-nav">
+        <ul>
+            <li>
+                <a href="#">About</a>
+                <div class="line"></div>
+            </li>
+            <li>
+                <a href="#">Services </a>
+            </li>
+            <li>
+                <a href="#">Contact</a>
+            </li>
+        </ul>
+
+        <!--Buttons-->
+        <div class="buttons">
+            <button class="filled">Sign Up</button>
+            <button class="outlined">Login</button>
+        </div>
+    </nav>
+
+    <!-- Mobile Navbar -->
+    <nav class="mobile-nav">
+        <div>
+          <!-- Logo -->
+          <svg width="29" height="12" viewBox="0 0 29 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="6" cy="6" r="6" fill="#0CB0DC"/>
+            <circle cx="23" cy="6" r="6" fill="#0CB0DC"/>
+            </svg>
+
+        </div>
+        <!-- Menu Icon -->
+        <div class="visible" id="menuIcon">
+            <svg class="menu-icon" width="25" height="17" viewBox="0 0 25 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1.38889 9.91671C2.15595 9.91671 2.77778 9.28244 2.77778 8.50004C2.77778 7.71764 2.15595 7.08337 1.38889 7.08337C0.621827 7.08337 0 7.71764 0 8.50004C0 9.28244 0.621827 9.91671 1.38889 9.91671Z" fill="black"/>
+                <path d="M23.6944 7.08337H6.8611C6.14006 7.08337 5.55554 7.67958 5.55554 8.41504V8.58504C5.55554 9.3205 6.14006 9.91671 6.8611 9.91671H23.6944C24.4155 9.91671 25 9.3205 25 8.58504V8.41504C25 7.67958 24.4155 7.08337 23.6944 7.08337Z" fill="black"/>
+                <path d="M23.6944 14.1666H1.30556C0.584517 14.1666 0 14.7628 0 15.4983V15.6683C0 16.4038 0.584517 17 1.30556 17H23.6944C24.4155 17 25 16.4038 25 15.6683V15.4983C25 14.7628 24.4155 14.1666 23.6944 14.1666Z" fill="black"/>
+                <path d="M23.6944 0H1.30556C0.584517 0 0 0.596207 0 1.33167V1.50167C0 2.23713 0.584517 2.83333 1.30556 2.83333H23.6944C24.4155 2.83333 25 2.23713 25 1.50167V1.33167C25 0.596207 24.4155 0 23.6944 0Z" fill="black"/>
+            </svg>
+                
+        </div>
+ 
+    <!-- Menu -->
+    <div class="menu hidden" id="menu">
+        <!-- Close Icon -->
+        <div id="closeIcon">
+            <svg class="close-icon" width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 1L13.5938 13.5938M13.5938 1L1 13.5938L13.5938 1Z" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>  
+        </div>
+        <!-- Divider -->
+        <div class="divider"></div>
+        <!-- Buttons -->
+        <div class="buttons"> 
+            <button class="filled">Sign Up</button>
+            <button class="outlined">Login</button>
+        </div>
+        <!-- Links -->
+        <ul>
+            <li>
+                <a href="#">About</a>
+            </li>
+            <li>
+                <a href="#">Services </a>
+            </li>
+            <li>
+                <a href="#">Contact</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+    
+    <!-- content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1>Hello..! I am <span>Web Application </span>Developer</h1>
+            <p>
+                What separates design from art is that design is meant to be… functional.
+            </p>
+            <button class="cta">Hire Me</button>
+        </section>
+        <!-- Illustration -->
+        <section class="Illustration">
+            <img src="./assets/illustration.svg" />
+        </section>
+    </main>
+
+    <!-- JAVASCRIPT -->
+<script>
+    const menuIcon=document.querySelector("#menuIcon")
+    const closeIcon=document.querySelector("#closeIcon")
+    const menu=document.querySelector("#menu")
+
+    menuIcon.addEventListener('click', ()=>{
+        console.log("Hello world")
+      menuIcon.classList.replace("visible","hidden")
+      menu.classList.replace("hidden","visible")
+      
+    })
+
+    closeIcon.addEventListener('click',()=>{
+         console.log("Hello world")
+      menu.classList.replace("visible","hidden")
+      menuIcon.classList.replace("hidden","visible") 
+    })
+</script>
+</body>
+
+</html>
